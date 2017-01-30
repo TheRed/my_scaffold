@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit]
+  before_action :set_entry, only: [:show, :edit, :update]
 
   def index
     @entries = Entry.all
