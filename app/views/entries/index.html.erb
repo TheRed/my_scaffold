@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +13,13 @@
       <tr>
         <td><%= entry.title %></td>
         <td><%= entry.body %></td>
+        <td><%= link_to 'Show', entry %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path %>
