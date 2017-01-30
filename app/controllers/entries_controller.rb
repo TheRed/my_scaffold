@@ -19,13 +19,13 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to @entry
+      redirect_to @entry, notice: 'Entry was successfully created.'
     end
   end
 
   def update
     if @entry.update(entry_params)
-      redirect_to @entry
+      redirect_to @entry, notice: 'Entry was successfully updated.'
     end
   end
 
