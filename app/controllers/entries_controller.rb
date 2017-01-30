@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :get_entry, only: [:show, :edit]
+  before_action :set_entry, only: [:show, :edit]
 
   def index
     @entries = Entry.all
@@ -30,7 +30,7 @@ class EntriesController < ApplicationController
   end
 
   private
-    def get_entry
+    def set_entry
       @entry = Entry.find(params[:id])
     end
 end
