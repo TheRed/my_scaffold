@@ -1,0 +1,11 @@
+<%= form_for(@entry) do |f| %>
+  <dl>
+    <dt><%= f.label :title %></dt>
+    <dd><%= f.text_field :title %></dd>
+
+    <dt><%= f.label :body %></dt>
+    <dd><%= f.text_area :body %></dd>
+  </dl>
+
+  <%= f.submit %>
+<% end %>
