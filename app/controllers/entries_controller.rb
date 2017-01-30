@@ -20,12 +20,16 @@ class EntriesController < ApplicationController
 
     if @entry.save
       redirect_to @entry, notice: 'Entry was successfully created.'
+    else
+      render :new
     end
   end
 
   def update
     if @entry.update(entry_params)
       redirect_to @entry, notice: 'Entry was successfully updated.'
+    else
+      render :edit
     end
   end
 
