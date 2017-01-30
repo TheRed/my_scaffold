@@ -16,21 +16,25 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new
+    @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to entries_path
+      redirect_to @entry
     end
   end
 
   def update
-    if @entry.update
-      redirect_to entry_path
+    if @entry.update(entry_params)
+      redirect_to @entry
     end
   end
 
   private
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    def entry_params
+      params.require(:entry).permit(:title, :body)
     end
 end
