@@ -25,6 +25,7 @@ class EntriesController < ApplicationController
 
   private
     def set_entry
+      @entry = Entry.find(params[:id])
     end
 
     def entry_params
