@@ -1,3 +1,13 @@
+<div id="error_explanation">
+  <% if entry.errors.any? %>
+    <h2>error xxxed from xxxx entry.</h2>
+
+    <% entry.errors.messages_all.each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+</div>
+
 <%= form_for(entry) do |f| %>
   <div class="field">
     <%= f.label :title %>
