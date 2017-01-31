@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show]
+  before_action :set_entry, only: [:show, :edit, :update]
 
   def index
     @entries = Entry.all
@@ -12,6 +12,9 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
 
+  def edit
+  end
+
   def create
     @entry = Entry.new(entry_params)
 
@@ -19,6 +22,14 @@ class EntriesController < ApplicationController
       redirect_to @entry, notice: 'Entry is successfully created.'
     else
       render :new
+    end
+  end
+
+  def update
+    if @entry.update(entry_params)
+      redirect_to @entry, notice: 'Entry is successfully updated.'
+    else
+      render :edit
     end
   end
 
