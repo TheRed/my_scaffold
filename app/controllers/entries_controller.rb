@@ -9,12 +9,19 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @entry = Entry.new
   end
 
   def edit
   end
 
   def create
+    @entry = Entry.new(entry_params)
+    if @entry.save
+      redirect_to @entry, notice: 'Entry was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
@@ -29,5 +36,6 @@ class EntriesController < ApplicationController
     end
 
     def entry_params
+      params.require(:entry).permit(:title, :body)
     end
 end
