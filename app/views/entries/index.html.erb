@@ -17,7 +17,7 @@
         <td><%= entry.title %></td>
         <td><%= entry.body %></td>
         <td><%= link_to 'Show', entry %></td>
-        <td><%= 'Edit' %></td>
+        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
         <td><%= 'Destroy' %></td>
       </tr>
     <% end %>
