@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update]
+  before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
     @entries = Entry.all
@@ -31,6 +31,11 @@ class EntriesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @entry.destroy
+    redirect_to entries_url, notice: 'Entry is successfully destroyed.'
   end
 
   private
