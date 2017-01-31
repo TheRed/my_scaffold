@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to @entry, { notice: 'Entry successfully created.' }
     else
-      redirect_to :new
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class EntriesController < ApplicationController
     if @entry.update(entry_params)
       redirect_to @entry, { notice: 'Entry successfully updated.' }
     else
-      redirect_to :edit
+      render :edit
     end
   end
 
